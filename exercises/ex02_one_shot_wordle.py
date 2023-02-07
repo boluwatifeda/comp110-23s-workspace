@@ -17,30 +17,30 @@ emoji_string: str = ""
 contains: bool = False
 
 while playing:
-    while(len(guess) != 6):
+    while (len(guess) != 6):
         guess = str(input(f"That was not {len(SECRET)} letters! Try again: "))
     
-    if(guess != SECRET):
+    if (guess != SECRET):
         while secret_index < len(SECRET):
             contains = False
             if guess[secret_index] == SECRET[secret_index]: 
                 emoji_string = emoji_string + GREEN_BOX
             else:
                 alternate_index = 0
-                while alternate_index < len(SECRET) and not(contains):
+                while alternate_index < len(SECRET) and not (contains):
                     contains = False
                     if guess[secret_index] == SECRET[alternate_index]:
                         contains = True
                     alternate_index = alternate_index + 1
-                if contains == True:
+                if contains is True:
                     emoji_string = emoji_string + YELLOW_BOX
-                if contains == False:
+                if contains is False:
                     emoji_string = emoji_string + WHITE_BOX      
             secret_index = secret_index + 1
         print(emoji_string)
         print("Not quite. Play again soon!")
         playing = False
-    if(guess == SECRET):
+    if (guess == SECRET):
         while secret_index < 6:
             if guess[secret_index] == SECRET[secret_index]:
                 emoji_string = emoji_string + GREEN_BOX
